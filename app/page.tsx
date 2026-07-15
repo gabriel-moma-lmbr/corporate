@@ -64,16 +64,16 @@ export default function Home() {
           <span className="logo">👔</span>
           <div>
             <h1>Corporate</h1>
-            <p>Alfinetadas corporativas sob medida. Com sinergia.</p>
+            <p>Alfinetadas sob medida. Porque LinkedIn sozinho é fraco.</p>
           </div>
         </div>
         <button
           className="btn-surpresa"
           onClick={surpreender}
           disabled={busy}
-          title="Sortear um tema e alfinetar"
+          title="Quando você não sabe o que alfinetar"
         >
-          🎲 Surpreenda-me
+          🎲 Me surpreenda
         </button>
       </header>
 
@@ -81,8 +81,7 @@ export default function Home() {
         {messages.length === 0 && (
           <div className="vazio">
             <p className="vazio-titulo">
-              Descreva o contexto — a reunião, o colega, o e-mail
-              passivo-agressivo — e receba a alfinetada perfeita.
+              Descreva sua tragédia corporativa. Vamos torná-la viral (em sua cabeça).
             </p>
             <div className="chips">
               {SUGESTOES.map((s) => (
@@ -128,14 +127,14 @@ export default function Home() {
           <div className="bolha bot">
             <span className="avatar">👔</span>
             <div className="texto digitando">
-              alinhando os ponteiros<span className="reticencias">…</span>
+              buscando a alfinetada perfeita<span className="reticencias">…</span>
             </div>
           </div>
         )}
 
         {error && (
           <div className="erro">
-            O RH bloqueou essa mensagem. Tente novamente em instantes.
+            A IA recusou alfinetar. Até máquinas têm ética. Tente outra.
           </div>
         )}
 
@@ -152,17 +151,16 @@ export default function Home() {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Descreva o contexto… ex.: meu chefe pediu 'só um ajuste finho'"
+          placeholder="O que essa pessoa fez que merecia uma alfinetada?"
           aria-label="Contexto para a alfinetada"
         />
         <button type="submit" disabled={busy || !input.trim()}>
-          {busy ? "Alinhando…" : "Alfinetar"}
+          {busy ? "Gerando…" : "Disparar"}
         </button>
       </form>
 
       <footer className="aviso">
-        Humor corporativo gerado por IA. Use com moderação e fora do horário
-        comercial.
+        ⚠️ Use em DMs, nunca em call. A responsabilidade é sua.
       </footer>
     </main>
   );

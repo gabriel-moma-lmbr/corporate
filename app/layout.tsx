@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Corporate — Alfinetadas Corporativas",
+  title: "Corporate — Gerador de Alfinetadas",
   description:
-    "Descreva o contexto e receba a alfinetada corporativa perfeita. Sinergia, mindset e deboche sob medida.",
+    "Diga-nos o que a pessoa fez e a IA fará o resto. Sem culpa. Sem provas.",
 };
 
 export default function RootLayout({
