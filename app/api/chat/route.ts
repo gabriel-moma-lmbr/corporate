@@ -2,7 +2,7 @@ import { convertToModelMessages, streamText, type UIMessage } from "ai";
 
 export const maxDuration = 30;
 
-const MODEL = process.env.AI_MODEL ?? "google/gemini-3-flash";
+const MODEL = process.env.AI_MODEL ?? "google/gemini-3.5-flash";
 
 const SYSTEM = `Você é o "Corporate", um gerador de alfinetadas corporativas em português do Brasil.
 
