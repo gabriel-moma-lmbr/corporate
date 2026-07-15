@@ -31,8 +31,15 @@ const SUGESTOES = [
 export default function Home() {
   const { messages, sendMessage, status, error } = useChat();
   const [input, setInput] = useState("");
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
   const busy = status === "submitted" || status === "streaming";
+
+  function copiar(texto: string, id: string) {
+    navigator.clipboard.writeText(texto);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  }
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -87,19 +94,35 @@ export default function Home() {
           </div>
         )}
 
-        {messages.map((m) => (
-          <div
-            key={m.id}
-            className={`bolha ${m.role === "user" ? "usuario" : "bot"}`}
-          >
-            {m.role === "assistant" && <span className="avatar">👔</span>}
-            <div className="texto">
-              {m.parts.map((p, i) =>
-                p.type === "text" ? <p key={i}>{p.text}</p> : null
+        {messages.map((m) => {
+          const texto = m.parts
+            .filter((p) => p.type === "text")
+            .map((p) => (p as any).text)
+            .join("\n");
+          return (
+            <div
+              key={m.id}
+              className={`bolha ${m.role === "user" ? "usuario" : "bot"}`}
+            >
+              {m.role === "assistant" && <span className="avatar">👔</span>}
+              <div className="texto">
+                {m.parts.map((p, i) =>
+                  p.type === "text" ? <p key={i}>{p.text}</p> : null
+                )}
+              </div>
+              {m.role === "assistant" && (
+                <button
+                  className="copiar-btn"
+                  onClick={() => copiar(texto, m.id)}
+                  title="Copiar mensagem"
+                  aria-label="Copiar"
+                >
+                  {copiedId === m.id ? "✓" : "📋"}
+                </button>
               )}
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         {status === "submitted" && (
           <div className="bolha bot">

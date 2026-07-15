@@ -201,6 +201,25 @@ body {
   border-bottom-left-radius: 4px;
 }
 
+.copiar-btn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 8px;
+  align-self: flex-end;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.copiar-btn:hover {
+  opacity: 1;
+}
+
+.copiar-btn:active {
+  transform: scale(0.95);
+}
+
 .digitando {
   color: var(--texto-suave);
   font-style: italic;
