@@ -64,16 +64,16 @@ export default function Home() {
           <span className="logo">👔</span>
           <div>
             <h1>Corporate</h1>
-            <p>Alfinetadas sob medida. Porque LinkedIn sozinho é fraco.</p>
+            <p>Alfinetadas certeiras. Sem censura.</p>
           </div>
         </div>
         <button
           className="btn-surpresa"
           onClick={surpreender}
           disabled={busy}
-          title="Quando você não sabe o que alfinetar"
+          title="Tema aleatório"
         >
-          🎲 Me surpreenda
+          🎲 Sortear
         </button>
       </header>
 
@@ -81,7 +81,7 @@ export default function Home() {
         {messages.length === 0 && (
           <div className="vazio">
             <p className="vazio-titulo">
-              Descreva sua tragédia corporativa. Vamos torná-la viral (em sua cabeça).
+              Conte o que aconteceu. A IA vai destruir.
             </p>
             <div className="chips">
               {SUGESTOES.map((s) => (
@@ -127,14 +127,14 @@ export default function Home() {
           <div className="bolha bot">
             <span className="avatar">👔</span>
             <div className="texto digitando">
-              buscando a alfinetada perfeita<span className="reticencias">…</span>
+              achando a brecha<span className="reticencias">…</span>
             </div>
           </div>
         )}
 
         {error && (
           <div className="erro">
-            A IA recusou alfinetar. Até máquinas têm ética. Tente outra.
+            Erro. A IA tem limites (infelizmente).
           </div>
         )}
 
@@ -151,16 +151,16 @@ export default function Home() {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="O que essa pessoa fez que merecia uma alfinetada?"
+          placeholder="Descreva o crime corporativo"
           aria-label="Contexto para a alfinetada"
         />
         <button type="submit" disabled={busy || !input.trim()}>
-          {busy ? "Gerando…" : "Disparar"}
+          {busy ? "Executando…" : "Executar"}
         </button>
       </form>
 
       <footer className="aviso">
-        ⚠️ Use em DMs, nunca em call. A responsabilidade é sua.
+        Gerado por IA. Culpa aí.
       </footer>
     </main>
   );
